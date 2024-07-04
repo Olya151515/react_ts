@@ -12,7 +12,7 @@ const App:FC = () => {
     let{changeHandler,value}= useToggle(false);
   return (
       <>
-          <h3>{value}</h3>
+          <h3>{value.toString()}</h3>
           <button onClick={() => {
               console.log(value);
               changeHandler();
