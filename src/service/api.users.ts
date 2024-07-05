@@ -16,8 +16,8 @@ type IPropsPosts ={
 const getAllUsers =async ():Promise<AxiosResponse<IPropsUsers>> =>{
     return await axiosInstance.get('/users?limit=10')
 }
-const getUserWithId = async (id:number):Promise<AxiosResponse<IPropsPosts>> =>{
-    return await axiosInstance.get('/users/' + id +'/posts')
+const getNextUsers = async (skipValue:number) =>{
+    return await axiosInstance.get('/users?limit='+skipValue)
 }
 const getAllPosts = async (id:number):Promise<AxiosResponse<IPropsPosts>>  =>{
     return await axiosInstance.get('/users/'+id + '/posts')
@@ -25,6 +25,6 @@ const getAllPosts = async (id:number):Promise<AxiosResponse<IPropsPosts>>  =>{
 
 export {
     getAllUsers,
-    getUserWithId,
-    getAllPosts
+    getAllPosts,
+    getNextUsers
 }

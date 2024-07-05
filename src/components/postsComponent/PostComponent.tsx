@@ -11,11 +11,10 @@ class PostComponent extends Component<IProps,{} >{
     render() {
         return (
             <div>
-                {this.props.post.id} - UserId -{this.props.post.userId}
-                {this.props.post.title}
+                PostId -{this.props.post.id} - UserId -{this.props.post.userId} <br/>
+               Title:  {this.props.post.title}
             </div>
         );
     }
 }
-
 export default PostComponent;

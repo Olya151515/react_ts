@@ -5,18 +5,18 @@ import UserComponent from "../userComponent/UserComponent";
 import {IPosts} from "../../model/post/IPosts";
 import PostComponent from "../postsComponent/PostComponent";
 
-
-
-type IProps ={
+type IState ={
     users:IUser[],
     posts:IPosts[]
 }
-class UsersComponent extends Component<IProps,{}>{
-    state:IProps ={
-        users:[],
-        posts:[]
+class UsersComponent extends Component<{},IState>{
+    constructor(props:{}) {
+        super(props);
+        this.state={
+            users:[],
+            posts:[]
+        }
     }
-
     componentDidMount() {
         getAllUsers().then(value => {
             this.setState({
@@ -26,28 +26,31 @@ class UsersComponent extends Component<IProps,{}>{
             console.log(value.data.users)})
 
     }
+    clickPosts = (id:number) =>{
+        console.log('click');
+        getAllPosts(id).then(value => {
+            this.setState({
+                ...this.state,
+                posts:value.data.posts
+            })
+            console.log(value.data.posts);
+            console.log(id);
+        })
+    }
 
     render() {
         console.log('render');
-        const clickPosts = (id:number) =>{
-            getAllPosts(id).then(value => {
-                this.setState({
-                    ...this.props,
-                    posts:value.data.posts
-                })
-                console.log(value.data.posts);
-                console.log(id);
-            })
-        }
-
         return (
             <div>
                 <div>
                     {
-                        this.state.users.map((user,index) =><UserComponent key={index} clickPosts={clickPosts} user={user}/>)
+                        this.state.users.map((user,index) =>
+                            <UserComponent key={index} clickPosts={this.clickPosts} user={user}/>)
                     }
+
+                    <hr/>
                     {
-                        this.state.posts.map(posts => <PostComponent post={posts}/>)
+                        this.state.posts.map((posts,index) => <PostComponent key={index} post={posts}/>)
                     }
                 </div>
             </div>

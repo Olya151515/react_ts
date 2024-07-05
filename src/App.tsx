@@ -10,7 +10,7 @@ const App:FC = () => {
 
   return (
     <>
-      <UsersComponent posts={[]} users={[]}/>
+      <UsersComponent/>
     </>
 
   );
