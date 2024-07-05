@@ -47,7 +47,6 @@ class UsersComponent extends Component<{},IState>{
                         this.state.users.map((user,index) =>
                             <UserComponent key={index} clickPosts={this.clickPosts} user={user}/>)
                     }
-
                     <hr/>
                     {
                         this.state.posts.map((posts,index) => <PostComponent key={index} post={posts}/>)
