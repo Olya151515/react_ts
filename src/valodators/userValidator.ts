@@ -6,7 +6,6 @@ const userValidator =
             .min(3)
             .max(15)
             .error(errors => {
-                console.log(errors);
                 errors.forEach(error => {
                     switch (error.code) {
                         case 'string.empty':
@@ -18,8 +17,6 @@ const userValidator =
                         default:
                             break;
                     }
-                    console.log(error.message);
-
                 })
                 return errors
             }),
@@ -38,8 +35,6 @@ const userValidator =
                         default:
                             break;
                     }
-                    console.log(error.message);
-
                 })
                 return errors
             }),
@@ -47,8 +42,6 @@ const userValidator =
         email:Joi.string()
             .required()
             .email({ tlds: { allow: false }})
-
-
     })
 
 
