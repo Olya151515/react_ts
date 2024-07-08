@@ -14,12 +14,15 @@ const FormComponent = () => {
 
     return (
         <div>
-            {/*{errors.name && <div>error:{errors.name?.message}</div>}*/}
+
             <form onSubmit={handleSubmit((data) => {postUser(data)})}>
+                {errors.name && <div>error:{errors.name?.message}</div>}
                 <label htmlFor="name">Enter your name:</label>
                 <input type="text"{...register('name')}/><br/>
+                {errors.username && <div>error:{errors.username?.message}</div>}
                 <label htmlFor="username">Enter your username:</label>
                 <input type="text"{...register('username')}/><br/>
+                {errors.email && <div>error:{errors.email?.message}</div>}
                 <label htmlFor="email">Enter your email:</label>
                 <input type="text"{...register('email')}/><br/>
                 <button disabled={!isValid}>send</button>

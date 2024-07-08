@@ -5,40 +5,19 @@ const userValidator =
         name: Joi.string()
             .min(3)
             .max(15)
-            .error(errors => {
-                errors.forEach(error => {
-                    switch (error.code) {
-                        case 'string.empty':
-                            error.message = 'can not be empty'
-                            break;
-                        case 'string.min':
-                            error.message = 'must be lower than 3'
-                            break;
-                        default:
-                            break;
-                    }
-                })
-                return errors
+            .messages({
+                'string.empty':'can not be empty',
+                'string.min' : 'must be lower than 3',
+                'string.max' : 'can not be lower than 15'
             }),
         username: Joi.string()
             .min(3)
             .max(20)
-            .error(errors => {
-                errors.forEach(error => {
-                    switch (error.code) {
-                        case 'string.empty':
-                            error.message = 'can not be empty'
-                            break;
-                        case 'string.min':
-                            error.message = 'must be lower than 3'
-                            break;
-                        default:
-                            break;
-                    }
-                })
-                return errors
+            .messages({
+                'string.empty' : 'can not be empty',
+                'string.min':'must be lower than 3',
+                'string.max':'can not  be lower than 30'
             }),
-
         email:Joi.string()
             .required()
             .email({ tlds: { allow: false }})
