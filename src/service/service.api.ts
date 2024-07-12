@@ -14,6 +14,9 @@ const getAllPosts = (skipValue:number):Promise<AxiosResponse<IUPostsResponse>> =
 const getAllComments = (skiValue:number):Promise<AxiosResponse<ICommentsResponse>> =>{
     return axiosInstance.get(urls.getAllComments+'?skip='+skiValue);
 }
+const getResponseData = async (nameOfData:string) =>{
+    return await axiosInstance.get(nameOfData).then(value => value)
+}
 
 const incrementSearchParams = (searchParams:URLSearchParams) =>{
     let currentPage = +(searchParams.get('page') || '1');
@@ -24,7 +27,7 @@ const decrementSearchParams = (searchParams:URLSearchParams) =>{
     return (currentPage-1).toString();
 }
 
-const isDisabledDec =((pageCount:number, typeOfData:string) =>{
+const isDisabledDec =((pageCount:number, typeOfData:string , totalNum:number) =>{
     let isDisabled = false;
     switch (typeOfData){
         case 'users':{
@@ -47,21 +50,21 @@ const isDisabledDec =((pageCount:number, typeOfData:string) =>{
         }
     }
 });
-const isDisabledInc =((pageCount:number, typeOfData:string) =>{
+const isDisabledInc =((pageCount:number, typeOfData:string , totalNum:number) =>{
     let isDisabled = false;
     switch (typeOfData){
         case 'users':{
-            if(pageCount === 7)
+            if(pageCount * 30 >= totalNum)
                 return  isDisabled = true;
             break;
         }
         case 'posts':{
-            if(pageCount === 9)
+            if(pageCount * 30 >= totalNum)
                 return isDisabled = true;
             break;
         }
         case 'comments':{
-            if( pageCount === 12)
+            if( pageCount * 30 >= totalNum)
                 return   isDisabled = true;
             break;
         }
@@ -74,6 +77,7 @@ export {
     getAllComments,
     getAllPosts,
     getAllUsers,
+    getResponseData,
     incrementSearchParams,
     decrementSearchParams,
     isDisabledDec,
