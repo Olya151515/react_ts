@@ -7,8 +7,8 @@ const AuthFormComponent = () => {
     const {handleSubmit,register} =
         useForm<TokenObtainPairModel>({
         defaultValues:{
-            username:'olaaaaa12',
-            password:'kSa677$$'
+            username:'olya151515',
+            password:'Olya@151515'
         }
     });
     const onSubmitHandler = async (data:TokenObtainPairModel) =>{

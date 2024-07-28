@@ -11,8 +11,8 @@ const RegFormComponent:FC = () => {
 
     const {handleSubmit,register} = useForm<IUserModel>({
         defaultValues:{
-            username:'olaaaaa12',
-            password:'kSa677$$'
+            username:'olya151515',
+            password:'Olya@151515'
         }
     })
 
