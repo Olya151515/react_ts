@@ -9,6 +9,7 @@ const HeaderComponent = () => {
                 <li><NavLink to={'/'}>auth page</NavLink></li>
                 <li><NavLink to={'/registration'}>registration page</NavLink></li>
                 <li><NavLink to={'/cars'}>cars page</NavLink></li>
+                <li><NavLink to={'/cars/create'}> create cars </NavLink></li>
             </ul>
             <hr/>
         </div>

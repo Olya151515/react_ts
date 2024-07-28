@@ -7,7 +7,7 @@ interface  IProps {
 const CarComponent:FC<IProps> = ({car}) => {
     return (
         <div>
-            <div>{car.brand} - {car.price}</div>
+            <div>Brand: {car.brand} - price: {car.price} -  year:{car.year} </div>
         </div>
     );
 };

@@ -18,9 +18,7 @@ const CarsPage = () => {
         const getCars = async () =>{
 
             try{
-                console.log('try');
                 let response = await carsService.getCars();
-                console.log(response);
                 if(response){
                     setCarPaginated(response);
                 }
@@ -37,7 +35,6 @@ const CarsPage = () => {
 
 
     }, []);
-    console.log(carPaginated);
     return (
         <div>
             <CarsComponent cars={carPaginated.items} />
