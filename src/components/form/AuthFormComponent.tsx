@@ -12,7 +12,7 @@ const AuthFormComponent = () => {
         }
     });
     const onSubmitHandler = async (data:TokenObtainPairModel) =>{
-        authService.authUser(data);
+         await authService.authUser(data);
     }
     return (
         <div>
