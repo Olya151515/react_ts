@@ -9,9 +9,10 @@ const UsersWithPostsComponent:FC<IProps> = ({items}) => {
         <div>
             {
                 items.map(value => <div key={value.id}>
-                    {value.name}
+                     Name: {value.name} <br/>
+                    Posts: <br/>
                     <ul key={value.id}>
-                        {value.posts.map(post=><li>{post.title}</li>)}
+                        {value.posts.map(post=><li key={post.id}> PostID: {post.id} - title: {post.title}</li>)}
                     </ul>
                 </div>)
             }

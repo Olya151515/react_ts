@@ -6,6 +6,9 @@ const defaultValueForStorage:StoreType = {
     },
     postsStore:{
         allPosts:[]
+    },
+    commentsStore:{
+        allComments:[]
     }
 }
 
