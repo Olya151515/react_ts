@@ -1,9 +1,9 @@
 import React from 'react';
-import {useAppContext} from "../../hooks/useAppContext";
 import PostComponent from "./PostComponent";
+import {useStore} from "../../store/MyStore";
 
 const PostsComponent = () => {
-    const {postsStore:{allPosts}} = useAppContext();
+    const {postsStore:{allPosts}} = useStore();
     return (
         <div>
             {

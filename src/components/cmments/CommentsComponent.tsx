@@ -1,9 +1,9 @@
 import React from 'react';
-import {useAppContext} from "../../hooks/useAppContext";
 import CommentComponent from "./CommentComponent";
+import {useStore} from "../../store/MyStore";
 
 const CommentsComponent = () => {
-    const {commentsStore:{allComments}} = useAppContext();
+    const {commentsStore:{allComments}} = useStore();
     return (
         <div>
             {

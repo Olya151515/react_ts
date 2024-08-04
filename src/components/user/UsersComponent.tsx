@@ -1,9 +1,9 @@
 import React from 'react';
-import {useAppContext} from "../../hooks/useAppContext";
 import UserComponent from "./UserComponent";
+import {useStore} from "../../store/MyStore";
 
 const UsersComponent = () => {
-    const {usersStore:{allUsers}} = useAppContext();
+    const {usersStore:{allUsers}} = useStore();
     return (
         <div>
             {

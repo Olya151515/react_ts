@@ -1,11 +1,11 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import UsersWithPostsComponent from "../../components/userPosts/UsersWithPostsComponent";
-import {useAppContext} from "../../hooks/useAppContext";
 import {UserWithPostsModel} from "../../models/userPosts/UserWithPostsModel";
+import {useStore} from "../../store/MyStore";
 
 const UserPostsPage = () => {
 
-    const {usersStore:{allUsers},postsStore:{allPosts}} = useAppContext();
+    const {usersStore:{allUsers},postsStore:{allPosts}} = useStore();
     const [userPostsState,setUserPostsState] =useState<UserWithPostsModel[]>([]);
 
     const userPostsArray = useMemo(() =>{

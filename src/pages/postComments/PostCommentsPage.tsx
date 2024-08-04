@@ -1,11 +1,11 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import PostsWithCommentsComponent from "../../components/postComments/PostsWithCommentsComponent";
-import {useAppContext} from "../../hooks/useAppContext";
 import {PostWithCommentsModel} from "../../models/postComments/PostWithCommentsModel";
+import {useStore} from "../../store/MyStore";
 
 const PostCommentsPage = () => {
-    const {commentsStore:{allComments},postsStore:{allPosts}} = useAppContext();
-    const [postCommets , setPostComments] = useState<PostWithCommentsModel[]>([]);
+    const {commentsStore:{allComments},postsStore:{allPosts}} = useStore();
+    const [postComments , setPostComments] = useState<PostWithCommentsModel[]>([]);
 
     const postCommentsArray = useMemo(() =>{
             return allPosts.map(post => {
@@ -21,7 +21,7 @@ const PostCommentsPage = () => {
 
     return (
         <div>
-            <PostsWithCommentsComponent items={postCommets}/>
+            <PostsWithCommentsComponent items={postComments}/>
         </div>
     );
 };
